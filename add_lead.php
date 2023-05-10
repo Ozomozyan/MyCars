@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['admin_loggedin']) || !$_SESSION['admin_loggedin']) {
-    header('Location: admin_login.php');
+    header('Location: admin_login.html');
     exit();
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(':codeAccess', $hashed_codeAccess, PDO::PARAM_STR);
             $stmt->execute();
 
-            header('Location: admin_panel.php');
+            header('Location: admin_panel.html');
         } catch (PDOException $e) {
             error_log("Error inserting lead: " . $e->getMessage());
             header('Location: 404.html');
@@ -44,6 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 } else {
-    header('Location: admin_panel.php');
+    header('Location: admin_panel.html');
 }
 ?>
