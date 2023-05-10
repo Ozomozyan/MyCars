@@ -17,7 +17,7 @@ $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $base->exec("SET CHARACTER SET utf8");
 
 // Prepare and execute the query
-$sql = 'INSERT INTO client (nom, prenom, contact, adresse, email, codeAcces) VALUES (:nom, :prenom, :contact, :adresse, :email, :codeAcces)';
+$sql = 'INSERT INTO client (nom, prenom, contact, adresse, email, codeAccess) VALUES (:nom, :prenom, :contact, :adresse, :email, :codeAcces)';
 $stmt = $base->prepare($sql);
 $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
 $stmt->bindParam(':prenom', $prenom, PDO::PARAM_STR);
