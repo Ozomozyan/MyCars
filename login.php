@@ -32,7 +32,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             $_SESSION['email'] = $result['email'];
 
             // Redirect to the user's account page
-            header('Location: index.html');
+            header('Location: catalogue.html');
         } else {
             // Authentication failed
             header('Location: 404.html');
