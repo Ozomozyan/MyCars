@@ -25,7 +25,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result && password_verify($password, $result['codeAcces'])) {
+        if ($result && password_verify($password, $result['codeAccess'])) {
             // Authentication successful
             $_SESSION['loggedin'] = true;
             $_SESSION['client_id'] = $result['id'];
@@ -44,6 +44,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         exit();
     }
 } else {
-    header('Location: login.php');
+    header('Location: 404.html');
 }
 ?>
