@@ -32,15 +32,15 @@ if (isset($_POST['email']) && isset($_POST['codeAcces'])) {
             $_SESSION['email'] = $result['email'];
 
             // Redirect to the user's account page
-            header('Location: account.php');
+            header('Location: index.html');
         } else {
             // Authentication failed
-            header('Location: login.php?error=1');
+            header('Location: 404.html');
         }
     } catch (PDOException $e) {
         // Handle query error
         error_log("Error executing query: " . $e->getMessage());
-        header('Location: login.php?error=3');
+        header('Location: 404.html');
         exit();
     }
 } else {
