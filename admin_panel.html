@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome, {{admin_full_name}}!</h1>
+        <h2>Admin Panel</h2>
+
+        <!-- Add your admin panel features here -->
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Leads</h3>
+                <a href="add_lead.php" class="btn btn-primary">Add Lead</a>
+                <a href="modify_lead.php" class="btn btn-primary">Modify Lead</a>
+                <a href="remove_lead.php" class="btn btn-primary">Remove Lead</a>
+            </div>
+            <div class="col-md-4">
+                <h3>Agence</h3>
+                <a href="add_agence.php" class="btn btn-primary">Add Agence</a>
+                <a href="modify_agence.php" class="btn btn-primary">Modify Agence</a>
+                <a href="remove_agence.php" class="btn btn-primary">Remove Agence</a>
+            </div>
+            <div class="col-md-4">
+                <h3>Agent</h3>
+                <a href="add_agent.php" class="btn btn-primary">Add Agent</a>
+                <a href="modify_agent.php" class="btn btn-primary">Modify Agent</a>
+                <a href="remove_agent.php" class="btn btn-primary">Remove Agent</a>
+            </div>
+        </div>
+
+        <a href="admin_logout.php" class="btn btn-danger mt-4">Logout</a>
+    </div>
+</body>
+
+</html>

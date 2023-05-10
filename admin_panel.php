@@ -6,23 +6,16 @@ if (!isset($_SESSION['admin_loggedin']) || !$_SESSION['admin_loggedin']) {
     header('Location: admin_login.php');
     exit();
 }
+
+// Get the admin's full name
+$admin_full_name = $_SESSION['admin_prenom'] . ' ' . $_SESSION['admin_nom'];
+
+// Load the admin_panel.html file
+$admin_panel_html = file_get_contents('admin_panel.html');
+
+// Replace the placeholder with the admin's full name
+$admin_panel_html = str_replace('{{admin_full_name}}', $admin_full_name, $admin_panel_html);
+
+// Output the final HTML
+echo $admin_panel_html;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
-</head>
-
-<body>
-    <h1>Welcome, <?= $_SESSION['admin_prenom'] . ' ' . $_SESSION['admin_nom'] ?>!</h1>
-    <h2>Admin Panel</h2>
-
-    <!-- Add your admin panel features here -->
-
-    <a href="admin_logout.php">Logout</a>
-</body>
-
-</html>
