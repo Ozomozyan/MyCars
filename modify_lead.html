@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Lead</title>
+</head>
+<body>
+    <h1>Modify Lead</h1>
+    <form method="POST" action="modify_lead.php">
+        <label for="leadId">Select Lead:</label>
+        <select name="leadId" id="leadId" required>
+            <!-- Populate the options with PHP -->
+        </select>
+        <br>
+        <label for="nomEntreprise">New Nom Entreprise:</label>
+        <input type="text" name="nomEntreprise" id="nomEntreprise" required>
+        <br>
+        <label for="contact">New Contact:</label>
+        <input type="text" name="contact" id="contact" required>
+        <br>
+        <label for="email">New Email:</label>
+        <input type="email" name="email" id="email" required>
+        <br>
+        <label for="codeAccess">New Code Access:</label>
+        <input type="password" name="codeAccess" id="codeAccess" required>
+        <br>
+        <input type="submit" value="Modify Lead">
+    </form>
+</body>
+</html>
