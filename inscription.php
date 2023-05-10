@@ -27,7 +27,7 @@ $stmt->bindParam(':email', $email, PDO::PARAM_STR);
 $stmt->bindParam(':codeAcces', $codeAcces, PDO::PARAM_STR);
 $stmt->execute();
 
-header('Location: inscription_success.html');
+header('Location: connection.html');
 ?>
 
 </br><a href="index.html">Retour à la page principale</a>
