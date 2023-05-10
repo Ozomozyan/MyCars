@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
+if ($result && password_verify($password, $result['codeAcces'])) {
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $codeAcces = $_POST['codeAcces'];
 
     // Connect to the database
     try {
