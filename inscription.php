@@ -1,7 +1,3 @@
-<html>
-<body>
-<h1>Reception des données du formulaire</h1>
-
 <?php
 // Get form data
 $nom = $_POST['nom'];
@@ -29,7 +25,3 @@ $stmt->execute();
 
 header('Location: connection.html');
 ?>
-
-</br><a href="index.html">Retour à la page principale</a>
-</body>
-</html>
