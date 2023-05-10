@@ -17,8 +17,6 @@
 </head>
 
 <body>
-  
-  <form class="flex formStyle" method="GET" action="inscription.php">
 
 
   <header class="main-header">
@@ -48,32 +46,33 @@
     
   </header>
 
+  <form class="flex formStyle" method="POST" action="inscription.php">
 
   <main>
     <form class="flex formStyle">
       <div class="form-group resizeForm">
         <label class="secondColor" for="nom">Nom</label>
-        <input type="text" class="form-control fourthColor" id="nom" placeholder="Nom">
+        <input type="text" class="form-control fourthColor" id="nom" name="nom" placeholder="Nom">
       </div>
       <div class="form-group resizeForm">
         <label class="secondColor" for="prenom">Prenom</label>
-        <input type="text" class="form-control fourthColor" id="prenom" placeholder="Prenom">
+        <input type="text" class="form-control fourthColor" id="prenom" name="prenom" placeholder="Prenom">
       </div>
       <div class="form-group resizeForm">
         <label class="secondColor" for="contact">Contact tel n°</label>
-        <input type="text" class="form-control fourthColor" id="contact" placeholder="contact">
+        <input type="text" class="form-control fourthColor" id="contact" name="contact" placeholder="contact">
       </div>
       <div class="form-group resizeForm">
         <label class="secondColor" for="adresse">Adresse</label>
-        <input type="text" class="form-control fourthColor" id="adresse" placeholder="adresse">
+        <input type="text" class="form-control fourthColor" id="adresse" name="adresse" placeholder="adresse">
       </div>
       <div class="form-group resizeForm">
         <label class="secondColor" for="email">Adresse mail</label>
-        <input type="email" class="form-control fourthColor" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse mail">
+        <input type="email" class="form-control fourthColor" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Adresse mail">
       </div>
       <div class="form-group resizeForm">
         <label class="secondColor" for="password">Mot de passe</label>
-        <input type="password" class="form-control fourthColor" id="exampleInputPassword1" placeholder="Mot de passe">
+        <input type="password" class="form-control fourthColor" id="exampleInputPassword1" name="codeAcces" placeholder="Mot de passe">
       </div>
         <button type="submit" class="btn btn-primary thirdColor btnResize">S'inscrire</button>
     </form>
