@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if ($result && password_verify($password, $result['codeAcces'])) {
+if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
-    $codeAcces = $_POST['codeAcces'];
+    $password = $_POST['password'];
 
     // Connect to the database
     try {
@@ -25,7 +25,7 @@ if ($result && password_verify($password, $result['codeAcces'])) {
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result && password_verify($codeAcces, $result['codeAcces'])) {
+        if ($result && password_verify($password, $result['codeAcces'])) {
             // Authentication successful
             $_SESSION['loggedin'] = true;
             $_SESSION['client_id'] = $result['id'];
