@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once('config.php');
 
 if (isset($_POST['email']) && isset($_POST['codeAcces'])) {
     $email = $_POST['email'];
