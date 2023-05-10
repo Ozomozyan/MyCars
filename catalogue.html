@@ -32,10 +32,14 @@
             <li><a href="catalogue.html">Catalogue</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="garantie-garage.html">Garantie</a></li>
-          </ul>
           <ul class="menu">
-            <li><a href="connection.html">Connection</a></li>
-            <li><a href="inscription.html">Inscription</a></li>
+              <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
+                  <li><a href="profile.php">Welcome, <?= $_SESSION['email'] ?></a></li>
+                  <li><a href="logout.php">Logout</a></li>
+              <?php else: ?>
+                  <li><a href="connection.php">Connection</a></li>
+                  <li><a href="inscription.php">Inscription</a></li>
+              <?php endif; ?>
           </ul>
       </div>
     </nav>
