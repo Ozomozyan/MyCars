@@ -12,9 +12,22 @@ try {
     exit();
 }
 
-// Fetch all cars from the database
+// Fetch agenceId for the logged-in agent
+$stmt = $base->prepare('SELECT agenceId FROM agent WHERE id = :agentId');
+$stmt->bindParam(':agentId', $_SESSION['agent_id']);  // Assuming you're storing the logged-in agent's ID in the session under 'agent_id'
+$stmt->execute();
+
+$agenceId = $stmt->fetchColumn();
+
+if ($agenceId === false) {
+    // Handle error: agent not found
+    echo json_encode(['error' => 'Agent not found']);
+    exit();
+}
+
+// Fetch all cars from the database for the agency
 $stmt = $base->prepare('SELECT id, marque, modele, annee, prix FROM voiture WHERE agenceId = :agenceId');
-$stmt->bindParam(':agenceId', $_SESSION['agenceId']);  // Or wherever you're storing the logged-in agent's agenceId
+$stmt->bindParam(':agenceId', $agenceId);
 $stmt->execute();
 
 $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
