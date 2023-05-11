@@ -1,10 +1,15 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['contact']) && isset($_POST['codeAccess'])) {
-        $contact = $_POST['contact'];
-        $codeAccess = $_POST['codeAccess'];
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // You need to get agentId from session or somewhere safe...
+    if(isset($_SESSION["agent_id"])) {
+        $agentId = $_SESSION["agent_id"];
+        $marque = $_POST["marque"];
+        $modele = $_POST["modele"];
+        $annee = $_POST["annee"];
+        $prix = $_POST["prix"];
 
         // Connect to the database
         try {
@@ -17,32 +22,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
 
-        // Check the credentials
-        try {
-            $stmt = $base->prepare('SELECT id, codeAccess FROM agent WHERE contact = :contact');
-            $stmt->bindParam(':contact', $contact, PDO::PARAM_STR);
+        $stmt = $base->prepare('SELECT agenceId FROM agent WHERE id = :agentId');
+        $stmt->bindParam(':agentId', $agentId);
+        $stmt->execute();
+
+        $agenceId = $stmt->fetchColumn();
+
+        if ($agenceId !== false) {
+            $stmt = $base->prepare('INSERT INTO car (marque, modele, annee, prix, agenceId) VALUES (:marque, :modele, :annee, :prix, :agenceId)');
+            $stmt->bindParam(':marque', $marque);
+            $stmt->bindParam(':modele', $modele);
+            $stmt->bindParam(':annee', $annee);
+            $stmt->bindParam(':prix', $prix);
+            $stmt->bindParam(':agenceId', $agenceId);
+
             $stmt->execute();
-
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($result && password_verify($codeAccess, $result['codeAccess'])) {
-                // Credentials are correct, log the user in
-                $_SESSION['agent_loggedin'] = true;
-                $_SESSION['agent_id'] = $result['id'];
-                header('Location: agent_panel.html');
-                exit();
-            } else {
-                // Credentials are not correct, redirect back to the login page
-                header('Location: agent_login.html');
-                exit();
-            }
-        } catch (PDOException $e) {
-            error_log("Error checking credentials: " . $e->getMessage());
-            header('Location: 404.html');
-            exit();
+        } else {
+            // Error: agent not found
         }
     }
-} else {
-    header('Location: agent_login.html');
 }
 ?>
