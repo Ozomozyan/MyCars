@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modify Agent</title>
-    <script src="fetch_agents.php"></script>
+    <script>
+    $(document).ready(function() {
+        $.getJSON("fetch_agents.php", function(data) {
+            $.each(data, function(key, value){
+                $("#id").append('<option value="' + value.id + '">' + value.prenom + ' ' + value.nom + '</option>');
+            });
+        });
+    });
+    </script>
 </head>
 <body onload="fetchAgents()">
     <h1>Modify Agent</h1>
