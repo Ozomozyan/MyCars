@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Agency</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.getJSON("fetch_agences.php", function(data) {
+                $.each(data, function(key, value){
+                    $("#agenceId").append('<option value="' + value.id + '">' + value.nom + '</option>');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Remove Agency</h1>
+    <form method="POST" action="remove_agence.php">
+        <label for="agenceId">Select Agency:</label>
+        <select name="agenceId" id="agenceId" required>
+            <!-- Populate the options with PHP -->
+        </select>
+        <br>
+        <input type="submit" value="Remove Agency">
+    </form>
+</body>
+</html>
