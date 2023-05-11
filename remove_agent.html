@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Agent</title>
+    <script src="fetch_agents.js"></script>
+</head>
+<body onload="fetchAgents()">
+    <h1>Remove Agent</h1>
+    <form method="POST" action="remove_agent.php">
+        <label for="id">Select Agent:</label>
+        <select name="id" id="id" required>
+            <!-- Populate the options with JavaScript -->
+        </select>
+        <br>
+        <input type="submit" value="Remove Agent">
+    </form>
+</body>
+</html>

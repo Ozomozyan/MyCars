@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Agent</title>
+    <script src="fetch_agents.js"></script>
+</head>
+<body onload="fetchAgents()">
+    <h1>Modify Agent</h1>
+    <form method="POST" action="modify_agent.php">
+        <label for="id">Select Agent:</label>
+        <select name="id" id="id" required>
+            <!-- Populate the options with JavaScript -->
+        </select>
+        <br>
+        <label for="prenom">New Prenom:</label>
+        <input type="text" name="prenom" id="prenom" required>
+        <br>
+        <label for="nom">New Nom:</label>
+        <input type="text" name="nom" id="nom" required>
+        <br>
+        <label for="contact">New Contact:</label>
+        <input type="text" name="contact" id="contact" required>
+        <br>
+        <label for="adresse">New Adresse:</label>
+        <input type="text" name="adresse" id="adresse" required>
+        <br>
+        <label for="codeAccess">New Code Access:</label>
+        <input type="password" name="codeAccess" id="codeAccess" required>
+        <br>
+        <label for="agenceId">New Agence ID:</label>
+        <input type="number" name="agenceId" id="agenceId" required>
+        <br>
+        <input type="submit" value="Modify Agent">
+    </form>
+</body>
+</html>
