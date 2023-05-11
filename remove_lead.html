@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remove Lead</title>
+    <script>
+        async function fetchLeads() {
+            try {
+                const response = await fetch('fetch_leads.php');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch leads');
+                }
+                const leads = await response.json();
+                const select = document.getElementById('leadId');
+                for (const lead of leads) {
+                    const option = document.createElement('option');
+                    option.value = lead.id;
+                    option.textContent = `${lead.nomEntreprise} (${lead.contact}, ${lead.email})`;
+                    select.appendChild(option);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchLeads);
+    </script>
 </head>
 <body>
     <h1>Remove Lead</h1>
