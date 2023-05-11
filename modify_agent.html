@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modify Agent</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
         $.getJSON("fetch_agents.php", function(data) {
@@ -14,7 +15,7 @@
     });
     </script>
 </head>
-<body onload="fetchAgents()">
+<body>
     <h1>Modify Agent</h1>
     <form method="POST" action="modify_agent.php">
         <label for="id">Select Agent:</label>
