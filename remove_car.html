@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Car</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $.getJSON("fetch_cars.php", function(data) {
+            $.each(data, function(key, value){
+                $("#id").append('<option value="' + value.id + '">' + value.marque + ' ' + value.modele + '</option>');
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>Remove Car</h1>
+    <form method="POST" action="remove_car.php">
+        <label for="id">Select Car:</label>
+        <select name="id" id="id" required>
+            <!-- Populate the options with JavaScript -->
+        </select>
+        <br>
+        <input type="submit" value="Remove Car">
+    </form>
+</body>
+</html>

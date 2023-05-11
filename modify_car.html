@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Car</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $.getJSON("fetch_cars.php", function(data) {
+            $.each(data, function(key, value){
+                $("#id").append('<option value="' + value.id + '">' + value.marque + ' ' + value.modele + '</option>');
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>Modify Car</h1>
+    <form method="POST" action="modify_car.php">
+        <label for="id">Select Car:</label>
+        <select name="id" id="id" required>
+            <!-- Populate the options with JavaScript -->
+        </select>
+        <br>
+        <label for="marque">New Marque:</label>
+        <input type="text" name="marque" id="marque" required>
+        <br>
+        <label for="modele">New Modele:</label>
+        <input type="text" name="modele" id="modele" required>
+        <br>
+        <label for="annee">New Year:</label>
+        <input type="text" name="annee" id="annee" required>
+        <br>
+        <label for="prix">New Price:</label>
+        <input type="number" name="prix" id="prix" required>
+        <br>
+        <input type="submit" value="Modify Car">
+    </form>
+</body>
+</html>
