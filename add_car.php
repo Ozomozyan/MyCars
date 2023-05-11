@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $agenceId = $stmt->fetchColumn();
 
         if ($agenceId !== false) {
-            $stmt = $base->prepare('INSERT INTO car (marque, modele, annee, prix, agenceId) VALUES (:marque, :modele, :annee, :prix, :agenceId)');
+            $stmt = $base->prepare('INSERT INTO voiture (marque, modele, annee, prix, agenceId) VALUES (:marque, :modele, :annee, :prix, :agenceId)');
             $stmt->bindParam(':marque', $marque);
             $stmt->bindParam(':modele', $modele);
             $stmt->bindParam(':annee', $annee);
